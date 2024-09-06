@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confess to Your Crush</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+        }
+        #noButton {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hi! uhm I just want to say that you look good in that shirt!</h1>
+    <img src="https://pin.it/P8L51pc3r" alt="Crush in shirt">
+
+    <p>It's a little embarrassing to say (delaying)....... But....Uhm.....I Like you</p>
+    <img src="https://pin.it/7CI4sDaqq" alt="Crush">
+
+    <p>I know this is too direct but...</p>
+    <img src="https://pin.it/4iugTlINJ" alt="Confession">
+
+    <h2>Will you be my Valentine date?</h2>
+    <img src="https://pin.it/7sbM6hAP7" alt="Valentine's Day">
+
+    <h3>What do you say?</h3>
+    <button class="button" id="yesButton">Yes!</button>
+    <button class="button" id="noButton">No!</button>
+
+    <div id="noResponse" class="hidden">
+        <h3>Are you sure? Please click "Yes!"</h3>
+        <button class="button" id="yesButtonAgain">Yes!</button>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById("yesButton");
+        const noButton = document.getElementById("noButton");
+        const noResponse = document.getElementById("noResponse");
+
+        yesButton.addEventListener("click", function() {
+            alert("Yay! Can't wait for our date! 😊");
+        });
+
+        noButton.addEventListener("click", function() {
+            // Move the No button to a random position
+            moveNoButton();
+            noResponse.classList.remove("hidden");
+            noButton.classList.add("hidden");
+        });
+
+        const yesButtonAgain = document.getElementById("yesButtonAgain");
+        yesButtonAgain.addEventListener("click", function() {
+            alert("Yay! Can't wait for our date! 😊");
+        });
+
+        function moveNoButton() {
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+
+            // Generate random positions
+            const randomX = Math.floor(Math.random() * (screenWidth - 150)); // 150 is button width
+            const randomY = Math.floor(Math.random() * (screenHeight - 50)); // 50 is button height
+
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+            noButton.classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
